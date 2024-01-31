@@ -5,5 +5,5 @@ namespace RedisExemplo.Repositories;
 
 public interface IProductRepository
 {
-    List<Product> GetAllProducts();
+    Task<List<Product>> GetAllProductsAsync();
 }

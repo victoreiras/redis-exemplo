@@ -4,5 +4,5 @@ namespace RedisExemplo.Services;
 
 public interface IProductService
 {
-    List<Product> GetAllProducts();
+    Task<List<Product>> GetAllProductsAsync();
 }

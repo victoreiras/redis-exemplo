@@ -17,9 +17,9 @@ public class HomeController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var cacheData = _productService.GetAllProducts();
+        var cacheData = await _productService.GetAllProductsAsync();
         return new OkObjectResult(cacheData);
     }
 }

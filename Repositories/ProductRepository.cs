@@ -4,7 +4,7 @@ namespace RedisExemplo.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    public List<Product> GetAllProducts()
+    public async Task<List<Product>> GetAllProductsAsync()
     {
         var productList = new List<Product>()
         {

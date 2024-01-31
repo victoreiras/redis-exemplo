@@ -14,16 +14,16 @@ public class ProductService : IProductService
         _productRepository = productRepository;
         _cacheService = cacheService;
     }
-    public List<Product> GetAllProducts()
+    public async Task<List<Product>> GetAllProductsAsync()
     {
-        var cacheData = _cacheService.GetData<List<Product>>(cacheKey);
+        var cacheData = await _cacheService.GetDataAsync<List<Product>>(cacheKey);
 
-        if (cacheData != null)
+        if (cacheData is not null)
             return cacheData;
 
-        cacheData = _productRepository.GetAllProducts();
+        cacheData = await _productRepository.GetAllProductsAsync();
 
-        _cacheService.SetData(cacheKey, cacheData);
+        _cacheService.SetDataAsync(cacheKey, cacheData);
 
         return cacheData;
     }
